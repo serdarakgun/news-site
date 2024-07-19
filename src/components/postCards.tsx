@@ -26,7 +26,7 @@ const PostCards = (Props: Props) => {
             <div className="flex flex-column align-items-center mb-3 justify-between md:flex-row">
                 <div className="flex col-12 md:col-6  flex-column ">
                     <div className="flex flex-row mr-5 mb-5 p-3 ">
-                        <div className="bg-white" style={{ width: 75, height: 75, borderRadius: '50%' }}></div>
+                        <div className="bg-black" style={{ width: 75, height: 75, borderRadius: '50%' }}></div>
                         <div className="ml-4 text-white">{Props.source}</div>
                     </div>
                     <div className="flex-1 text-xl text-white p-3">{Props.name}</div>
