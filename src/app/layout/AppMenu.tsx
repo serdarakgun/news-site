@@ -4,19 +4,31 @@ import { MenuProvider } from './context/menucontext';
 const AppMenu = () => {
   const model: any[] = [
     {
-      label: 'Menü 1',
+      label: 'Haberler',
       items: [
         {
-          label: 'Alt Menü 1',
+          label: 'Gazete Haberleri',
           items: [
             {
-              label: 'Alt Menü 1 - 1',
+              label: 'Cumhuriyet',
+              to: '',
+            },
+            {
+              label: 'Habertürk',
+              to: '',
+            },
+            {
+              label: 'Karar',
+              to: '',
+            },
+            {
+              label: 'Sabah',
               to: '',
             },
           ],
         },
-        { label: 'Alt Menü 2', to: '' },
-        { label: 'Alt Menü 3', to: '' },
+        { label: 'Süper Lig Puan Durumu', to: '' },
+        { label: 'Namaz Vakitleri', to: '' },
       ],
     },
   ];

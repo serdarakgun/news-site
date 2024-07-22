@@ -38,7 +38,7 @@ const AppMenuitem = (props: any) => {
   };
 
   const subMenu = item!.items && item!.visible !== false && (
-    <CSSTransition timeout={{ enter: 1000, exit: 450 }} classNames="layout-submenu" in={props.root ? true : active} key={item!.label}>
+    <CSSTransition timeout={{ enter: 1000, exit: 450 }} classNames="layout-submenu"  in={props.root ? true : active} key={item!.label}>
       <ul>
         {item!.items.map((child: any, i: any) => {
           return <AppMenuitem item={child} index={i} className={child.badgeClass} parentKey={key} key={child.label} />;
@@ -49,7 +49,7 @@ const AppMenuitem = (props: any) => {
 
   return (
     <Suspense>
-      <li className={classNames({ 'layout-root-menuitem': props.root, 'active-menuitem': active })}>
+      <li  className={classNames({ 'layout-root-menuitem': props.root, 'active-menuitem': active })}>
         {props.root && item!.visible !== false && <div className="layout-menuitem-root-text">{item!.label}</div>}
         {(!item!.to || item!.items) && item!.visible !== false ? (
           <a href={item!.url} onClick={(e) => itemClick(e)} className={classNames(item!.class, 'p-ripple')} target={item!.target} tabIndex={0}>
