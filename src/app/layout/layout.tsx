@@ -6,7 +6,7 @@ import React, { Suspense, useContext, useEffect, useRef } from 'react';
 import AppSidebar from './AppSidebar';
 import AppTopbar from './AppTopbar';
 import { LayoutContext } from './context/layoutcontext';
-import backgroundImage from '../../../public/assets/png/kaktüsarkaplan.jpg'
+import backgroundImage from '../../../public/assets/png/kaktüsarkaplan.jpg';
 
 const Layout = ({ children }: any) => {
   const { layoutConfig, layoutState, setLayoutState } = useContext(LayoutContext);
@@ -118,11 +118,14 @@ const Layout = ({ children }: any) => {
   return (
     <Suspense>
       <React.Fragment>
-        <div className={containerClass} style={{
+        <div
+          className={containerClass}
+          style={{
             backgroundImage: `url(${backgroundImage.src})`,
             backgroundRepeat: 'repeat', // Ensures the background image repeats if it's small
             backgroundSize: 'auto', // Keeps the original size of the image
-          }}>
+          }}
+        >
           <AppTopbar ref={topbarRef} />
           <div ref={sidebarRef} className="layout-sidebar opacity-90">
             <AppSidebar />

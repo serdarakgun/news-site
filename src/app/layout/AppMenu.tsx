@@ -11,23 +11,26 @@ const AppMenu = () => {
           items: [
             {
               label: 'Cumhuriyet',
-              to: '',
+              to: '/news/cumhuriyet',
             },
             {
               label: 'Habertürk',
-              to: '',
+              to: '/news/cumhuriyet',
             },
             {
               label: 'Karar',
-              to: '',
+              to: '/news/cumhuriyet',
             },
             {
               label: 'Sabah',
-              to: '',
+              to: '/news/cumhuriyet',
             },
           ],
         },
-        { label: 'Süper Lig Puan Durumu', to: '' },
+        {
+          label: 'Futbol',
+          to: 'football/Leagues',
+        },
         { label: 'Namaz Vakitleri', to: '' },
       ],
     },
