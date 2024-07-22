@@ -8,7 +8,6 @@ import 'primereact/resources/themes/saga-blue/theme.css';
 import PostCards from '@/src/components/postCards';
 import { fetchNews } from '@/src/redux/news-store';
 import { reduxStore } from '@/src/redux';
-import { useDispatch } from 'react-redux';
 import { setToastMessage } from '@/src/redux/toastMessage-store';
 
 interface NewsItem {
@@ -24,12 +23,7 @@ interface selectedProfiles {
   label: string;
 }
 
-interface Profile {
-  name: string;
-}
-
 const HomePage = () => {
-  const [selectedProfile, setSelectedProfile]: any = useState<selectedProfiles[] | null>(null);
   const [news, setNews] = useState<NewsItem[]>([]);
   const [pageNumber, setPageNumber] = useState(0);
   const [loading, setLoading] = useState(false);
