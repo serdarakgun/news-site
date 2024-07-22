@@ -22,41 +22,39 @@ interface Props {
 
 const PostCards = (Props: Props) => {
   const share = () => {
-    navigator.share({
-      text: Props.name,
-      title: Props.source,
-      url: Props.url,
-    });
+    navigator
+      .share({
+        text: Props.name,
+        title: Props.source,
+        url: Props.url,
+      })
+      .then();
   };
   const profilePicSelect = () => {
-    const name = Props.source.toLowerCase();
+    const name: string = Props.source.toLowerCase();
     switch (name) {
       case 'cumhuriyet':
         return cumhuriyet;
-        break;
 
       case 'karar':
         return karar;
-        break;
 
       case 'hürriyet':
         return hurriyet;
-        break;
+
       case 'habertürk':
         return haberturk;
-        break;
 
       case 'sabah':
         return sabah;
-        break;
 
       default:
         return placeholder;
-        break;
     }
   };
+
   const handleCopyUrl = () => {
-    navigator.clipboard.writeText(Props.url);
+    navigator.clipboard.writeText(Props.url).then();
     reduxStore.dispatch(setToastMessage({ show: true, severity: 'success', summary: 'Başarılı', detail: 'url kopyalandı' }));
   };
 
