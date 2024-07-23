@@ -4,7 +4,6 @@ import '@/src/app/globals.css';
 import { LayoutProvider } from './layout/context/layoutcontext';
 import '@/styles/layout/layout.scss';
 import ToastMessage from '@/src/components/toastMessage/toastMessage';
-import { MultiSelect } from 'primereact/multiselect';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {

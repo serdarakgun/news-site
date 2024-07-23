@@ -3,12 +3,12 @@ import React from 'react';
 import { Button } from 'primereact/button';
 import { setToastMessage } from '@/src/redux/toastMessage-store';
 import { reduxStore } from '@/src/redux';
-import sabah from '../../public/assets/png/sabahgazetesilogo.png';
-import hurriyet from '../../public/assets/png/hürriyet logo.png';
-import cumhuriyet from '../../public/assets/png/cumhuriyet-logo-icon-512-512.jpg';
-import karar from '../../public/assets/png/kararlogo.png';
-import haberturk from '../../public/assets/png/habertürklogopng.png';
-import placeholder from '../../public/assets/png/Image-Placeholder-Dark.png';
+import sabah from '@/public/assets/png/sabahgazetesilogo.png';
+import hurriyet from '@/public/assets/png/hürriyet logo.png';
+import cumhuriyet from '@/public/assets/png/cumhuriyet-logo-icon-512-512.jpg';
+import karar from '@/public/assets/png/kararlogo.png';
+import haberturk from '@/public/assets/png/habertürklogopng.png';
+import placeholder from '@/public/assets/png/Image-Placeholder-Dark.png';
 import Image from 'next/image';
 
 interface Props {

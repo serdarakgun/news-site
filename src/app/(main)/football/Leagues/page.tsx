@@ -53,10 +53,12 @@ const LeaguesPage = () => {
     ]);
   }, []);
 
-  useEffect(() => {
-    if (selectedLeague) {
-      console.log(selectedLeague.key);
-      fetchLeagueRanking(selectedLeague.key).then();
+  /* useEffect(() => {
+    if (hasFetchedInitialPage.current) {
+      if (selectedLeague) {
+        console.log(selectedLeague.key);
+        fetchLeagueRanking(selectedLeague.key).then();
+      }
     }
   }, [selectedLeague]);
 
@@ -67,6 +69,7 @@ const LeaguesPage = () => {
       hasFetchedInitialPage.current = true;
     }
   }, []);
+
   const fetchLeagues = async () => {
     setLoading(true);
     try {
@@ -104,11 +107,11 @@ const LeaguesPage = () => {
     } finally {
       setLoading(false);
     }
-  };
+  };*/
 
   return (
     <div>
-      {!loading ? (
+      {loading ? (
         <div>
           <div
             className="flex justify-center p-4"

@@ -6,7 +6,7 @@ import React, { Suspense, useContext, useEffect, useRef } from 'react';
 import AppSidebar from './AppSidebar';
 import AppTopbar from './AppTopbar';
 import { LayoutContext } from './context/layoutcontext';
-import backgroundImage from '../../../public/assets/png/kaktüsarkaplan.jpg';
+import backgroundImage from '@/public/assets/png/kaktüsarkaplan.jpg';
 
 const Layout = ({ children }: any) => {
   const { layoutConfig, layoutState, setLayoutState } = useContext(LayoutContext);

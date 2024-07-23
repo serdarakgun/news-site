@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import api from '@/util/api';
+import { Simulate } from 'react-dom/test-utils';
+import error = Simulate.error;
 
-const API_KEY = '6vDtt0ooPL9YwK7K9siJbj:7BXGTrjxuT0N4A7izdyjjm';
 const API_URL = 'https://api.collectapi.com/football/league?data.league=';
 
 interface LeagueRankingItem {
@@ -21,22 +23,14 @@ export const fetchFootballLeagueRanking = createAsyncThunk<LeagueRankingResponse
   'footballLeagueRanking',
   async (league: string, { rejectWithValue }) => {
     try {
-      const response = await fetch(API_URL + league, {
-        method: 'GET',
-        headers: {
-          'content-type': 'application/json',
-          authorization: `apikey ${API_KEY}`,
-        },
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        return rejectWithValue(error);
-      }
-
+      const response: any = await api.get(API_URL + league);
       const data: LeagueRankingResponse = await response.json();
 
-      return data;
+      if (response?.statusCode === 200) {
+        return data;
+      } else {
+        return rejectWithValue(error);
+      }
     } catch (error) {
       return rejectWithValue(error);
     }

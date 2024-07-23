@@ -3,16 +3,15 @@ import axios from 'axios';
 import { hostUrl } from './constants';
 import { clearStorage } from './util-functions.ts';
 
+const API_KEY = '6vDtt0ooPL9YwK7K9siJbj:7BXGTrjxuT0N4A7izdyjjm';
+
 const axiosClient = axios.create({
   baseURL: hostUrl,
+  headers: { 'Content-Type': 'application/json', authorization: `apikey ${API_KEY}` },
 });
 
 axiosClient.interceptors.request.use(
   function (config) {
-    const token = JSON.parse(localStorage.getItem('session'))?.accessToken;
-    if (token) {
-      config.headers.Authorization = 'Bearer ' + token;
-    }
     return config;
   },
   function (error) {
