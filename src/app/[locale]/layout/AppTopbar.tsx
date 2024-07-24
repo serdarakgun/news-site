@@ -9,7 +9,6 @@ const AppTopbar = forwardRef<any>((props, ref) => {
   const menubuttonRef = useRef(null);
   const topbarmenuRef = useRef(null);
   const topbarmenubuttonRef = useRef(null);
-  const router = useRouter();
 
   useImperativeHandle(ref, () => ({
     menubutton: menubuttonRef.current,

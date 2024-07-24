@@ -5,9 +5,7 @@ import { LayoutProvider } from '@/src/app/[locale]/layout/context/layoutcontext'
 import '@/styles/layout/layout.scss';
 import ToastMessage from '@/src/components/toastMessage/toastMessage';
 import { AbstractIntlMessages, NextIntlClientProvider } from 'next-intl';
-import { useMessages } from 'use-intl';
-import { pick } from 'next/dist/lib/pick';
-import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
+import { getMessages } from 'next-intl/server';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
