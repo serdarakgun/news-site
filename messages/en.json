@@ -1,0 +1,20 @@
+{
+  "Home": {
+    "header": "current headlines"
+  },
+  "SideBar": {
+    "headerLabel": "Shortcuts",
+    "news": "News",
+    "football": "Football",
+    "religion": "Prayer Times"
+  },
+  "Football": {
+    "headerLabel": "Leagues",
+    "label1": "Ranking",
+    "label2": "Teams",
+    "label3": "Matchs Played",
+    "label4": "Wins",
+    "label5": "Defeats",
+    "label6": "Standings"
+  }
+}

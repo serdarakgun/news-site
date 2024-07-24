@@ -1,0 +1,20 @@
+{
+  "Home": {
+    "header": "aktuelle Schlagzeilen"
+  },
+  "SideBar": {
+    "headerLabel": "Abkürzungen",
+    "news": "Aktuelles",
+    "football": "Fußball",
+    "religion": "Gebetszeiten"
+  },
+  "Football": {
+    "headerLabel": "Ligen",
+    "label1": "Sortieren",
+    "label2": "Mannschaft",
+    "label3": "Gespieltes Spiel",
+    "label4": "Sieg",
+    "label5": "Niederlage",
+    "label6": "Tabellenstand"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "Home": {
+    "header": "güncel başlıklar"
+  },
+  "SideBar": {
+    "headerLabel": "kısayollar",
+    "news": "Haberler",
+    "football": "Futbol",
+    "religion": "Namaz Vakitleri"
+  },
+  "Football": {
+    "headerLabel": "Ligler",
+    "label1": "Sıralama",
+    "label2": "Takım",
+    "label3": "Oynanan Maç",
+    "label4": "Galibiyet",
+    "label5": "Mağlubiyet",
+    "label6": "puan durumu"
+  }
+}

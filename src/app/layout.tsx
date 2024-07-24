@@ -1,19 +1,25 @@
 import { Providers } from '../providers';
 import { Inter } from 'next/font/google';
 import '@/src/app/globals.css';
-import { LayoutProvider } from './layout/context/layoutcontext';
+import { LayoutProvider } from '@/src/app/[locale]/layout/context/layoutcontext';
 import '@/styles/layout/layout.scss';
 import ToastMessage from '@/src/components/toastMessage/toastMessage';
+import { AbstractIntlMessages, NextIntlClientProvider } from 'next-intl';
+import { useMessages } from 'use-intl';
+import { pick } from 'next/dist/lib/pick';
+import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Habercim',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
+  const messages = await getMessages();
+
   return (
     <Providers>
-      <html lang="en" suppressHydrationWarning>
+      <html lang={locale} suppressHydrationWarning>
         <head>
           <link id="theme-css" href={`/themes/lara-light-indigo/theme.css`} rel="stylesheet"></link>
           <script
@@ -29,7 +35,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </head>
         <body className={inter.className}>
           <ToastMessage />
-          <LayoutProvider>{children}</LayoutProvider>
+          <LayoutProvider>
+            <NextIntlClientProvider locale={locale} messages={JSON.parse(JSON.stringify(messages)) as unknown as AbstractIntlMessages}>
+              {children}
+            </NextIntlClientProvider>
+          </LayoutProvider>
         </body>
       </html>
     </Providers>

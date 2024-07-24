@@ -1,13 +1,15 @@
 import AppMenuitem from './AppMenuitem';
 import { MenuProvider } from './context/menucontext';
+import { useTranslations } from 'next-intl';
 
 const AppMenu = () => {
+  const t = useTranslations('SideBar');
   const model: any[] = [
     {
-      label: 'Haberler',
+      label: t('headerLabel'),
       items: [
         {
-          label: 'Gazete Haberleri',
+          label: t('news'),
           items: [
             {
               label: 'Cumhuriyet',
@@ -28,10 +30,10 @@ const AppMenu = () => {
           ],
         },
         {
-          label: 'Futbol',
-          to: 'football/Leagues',
+          label: t('football'),
+          to: '/football/Leagues',
         },
-        { label: 'Namaz Vakitleri', to: '' },
+        { label: t('religion'), to: '' },
       ],
     },
   ];

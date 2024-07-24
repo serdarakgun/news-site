@@ -1,7 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import api from '@/util/api';
-import { Simulate } from 'react-dom/test-utils';
-import error = Simulate.error;
 
 const API_URL = 'https://api.collectapi.com/football/league?data.league=';
 
@@ -19,20 +17,29 @@ interface LeagueRankingResponse {
   result: LeagueRankingItem[];
 }
 
-export const fetchFootballLeagueRanking = createAsyncThunk<LeagueRankingResponse, string, { rejectValue: any }>(
-  'footballLeagueRanking',
+export const fetchFootballLeagueRanking = createAsyncThunk<
+  LeagueRankingResponse,
+  string,
+  { rejectValue: string } // Define rejectValue as string for error messages
+>(
+  'footballLeagueRanking/fetch', // Changed to follow convention of 'namespace/action'
   async (league: string, { rejectWithValue }) => {
     try {
-      const response: any = await api.get(API_URL + league);
-      const data: LeagueRankingResponse = await response.json();
+      const response: any = await api.get(`${API_URL}${league}`);
 
-      if (response?.statusCode === 200) {
+      if (response.ok) {
+        // Use response.ok for status code checks
+        const data: LeagueRankingResponse = await response.json();
         return data;
       } else {
-        return rejectWithValue(error);
+        // Handle the case when response is not successful
+        const errorMessage = `Error: ${response.status} - ${response.statusText}`;
+        return rejectWithValue(errorMessage);
       }
     } catch (error) {
-      return rejectWithValue(error);
+      // Handle unexpected errors
+      const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred';
+      return rejectWithValue(errorMessage);
     }
   }
 );
