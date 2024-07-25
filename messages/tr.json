@@ -6,7 +6,8 @@
     "headerLabel": "kısayollar",
     "news": "Haberler",
     "football": "Futbol",
-    "religion": "Namaz Vakitleri"
+    "religion": "Namaz Vakitleri",
+    "weather": "Hava Durumu"
   },
   "Football": {
     "headerLabel": "Ligler",

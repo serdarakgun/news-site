@@ -33,7 +33,8 @@ const AppMenu = () => {
           label: t('football'),
           to: '/football/Leagues',
         },
-        { label: t('religion'), to: '' },
+        { label: t('religion'), to: '/religion' },
+        { label: t('weather'), to: '/weather' },
       ],
     },
   ];

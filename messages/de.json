@@ -6,7 +6,8 @@
     "headerLabel": "Abkürzungen",
     "news": "Aktuelles",
     "football": "Fußball",
-    "religion": "Gebetszeiten"
+    "religion": "Gebetszeiten",
+    "weather": "Wettervorhersage"
   },
   "Football": {
     "headerLabel": "Ligen",

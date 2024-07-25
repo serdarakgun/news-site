@@ -6,7 +6,8 @@
     "headerLabel": "Shortcuts",
     "news": "News",
     "football": "Football",
-    "religion": "Prayer Times"
+    "religion": "Prayer Times",
+    "weather": "Weather Forecast"
   },
   "Football": {
     "headerLabel": "Leagues",
