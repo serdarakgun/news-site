@@ -6,3 +6,4 @@ export * from './footballLeagues-store';
 export * from './FootballLeagueRanking-store';
 export * from './religion-store';
 export * from './weather-store';
+export * from './gold-store';

@@ -5,6 +5,8 @@ import { Column } from 'primereact/column';
 import { Dropdown } from 'primereact/dropdown';
 import { ProgressSpinner } from 'primereact/progressspinner';
 import { fetchWeather, reduxStore, setToastMessage } from '@/src/redux';
+import { useTranslations } from 'next-intl';
+import citiesJson from './cities.json';
 
 interface WeatherData {
   date: string;
@@ -18,22 +20,23 @@ interface WeatherData {
   night: string;
   humidity: string;
 }
-
+interface CitySelection {
+  name: string;
+  key: string;
+}
 const Weather = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<WeatherData[]>([]);
-  const [selectedCity, setSelectedCity] = useState<string>('ankara'); // Default city
-
-  const cities = [
-    { name: 'Adana', key: 'adana' },
-    { name: 'Ankara', key: 'ankara' },
-    { name: 'Istanbul', key: 'istanbul' },
-    // Add more cities as needed
-  ];
-
+  const [selectedCity, setSelectedCity] = useState<CitySelection>({ name: 'Ankara', key: 'ankara' }); // Default city
+  const t = useTranslations('Weather');
+  const cities = citiesJson.map((e) => ({
+    ...e,
+    label: t(e.label),
+  }));
   useEffect(() => {
     if (selectedCity) {
-      fetchWeatherData(selectedCity);
+      console.log(selectedCity.name.toUpperCase());
+      fetchWeatherData(selectedCity.key);
     }
   }, [selectedCity]);
 
@@ -43,7 +46,14 @@ const Weather = () => {
     try {
       const resultAction = await reduxStore.dispatch(fetchWeather(city));
       if (fetchWeather.fulfilled.match(resultAction)) {
-        const weatherData: WeatherData[] = resultAction.payload.result;
+        const weatherData: WeatherData[] = resultAction.payload.result.map((item: any) => ({
+          ...item,
+          degree: Math.round(item.degree),
+          min: Math.round(item.min),
+          max: Math.round(item.max),
+          night: Math.round(item.night),
+          humidity: Math.round(item.humidity),
+        }));
         setData(weatherData);
         reduxStore.dispatch(setToastMessage({ show: true, severity: 'success', summary: 'Başarılı', detail: 'Data çekildi' }));
       } else {
@@ -64,34 +74,37 @@ const Weather = () => {
         </div>
       ) : (
         <div>
-          <div className="col-12 card flex justify-between opacity-90">
-            <div className="text-3xl">HAVA DURUMU: {selectedCity.toUpperCase()}</div>
+          <div className="col-12 card flex justify-center items-center flex-column md:flex-row md:justify-between">
+            <div className="text-3xl mb-3 md:mb-0">
+              {t('headerLabel')}: {selectedCity.name.toUpperCase()}
+            </div>
             <Dropdown
               value={selectedCity}
               onChange={(e) => setSelectedCity(e.value)}
+              optionGroupLabel="label"
+              optionGroupChildren="items"
               options={cities}
               optionLabel="name"
               placeholder="Şehir seçiniz"
               filter
-              className="w-full md:w-14rem"
+              className="w-12rem h-3rem md:w-14rem"
             />
           </div>
           <div className="col-12 card">
             <DataTable value={data} tableClassName="col-12">
-              <Column field="date" header="Tarih" />
-              <Column field="day" header="Gün" />
+              <Column field="date" header={t('label1')} body={(rowData: WeatherData) => `${rowData.date}`} />
+              <Column field="day" header={t('label2')} body={(rowData: WeatherData) => `${t(rowData.day)}`} />
               <Column
                 field="icon"
-                header="İkon"
+                header={t('label3')}
                 body={(rowData: WeatherData) => <img src={rowData.icon} alt={rowData.description} style={{ maxWidth: '50px', maxHeight: '50px' }} />}
               />
-              <Column field="description" header="Açıklama" />
-              <Column field="status" header="Durum" />
-              <Column field="degree" header="Derece" />
-              <Column field="min" header="Min" />
-              <Column field="max" header="Max" />
-              <Column field="night" header="Gece" />
-              <Column field="humidity" header="Nem" />
+              <Column field="description" header={t('label4')} body={(rowData: WeatherData) => `${t(rowData.description)}`} />
+              <Column field="degree" header={t('label5')} body={(rowData: WeatherData) => `${rowData.degree}C°`} />
+              <Column field="min" header={t('label6')} body={(rowData: WeatherData) => `${rowData.min}C°`} />
+              <Column field="max" header={t('label7')} body={(rowData: WeatherData) => `${rowData.max}C°`} />
+              <Column field="night" header={t('label8')} body={(rowData: WeatherData) => `${rowData.night}C°`} />
+              <Column field="humidity" header={t('label9')} body={(rowData: WeatherData) => `${rowData.humidity}%`} />
             </DataTable>
           </div>
         </div>

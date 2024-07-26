@@ -6,6 +6,7 @@ import { footballLeaguesSlice } from '@/src/redux/footballLeagues-store';
 import { footballLeagueRankingSlice } from '@/src/redux/FootballLeagueRanking-store';
 import { religionSlice } from '@/src/redux/religion-store';
 import { weatherSlice } from '@/src/redux/weather-store';
+import { goldSlice } from '@/src/redux/gold-store';
 export const rootReducer = combineReducers({
   toastMessageReducer: toastMessageSlice.reducer,
   news: newsSlice.reducer,
@@ -14,4 +15,5 @@ export const rootReducer = combineReducers({
   footballLeagueRankings: footballLeagueRankingSlice.reducer,
   religion: religionSlice.reducer,
   weather: weatherSlice.reducer,
+  gold: goldSlice.reducer,
 });

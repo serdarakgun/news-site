@@ -35,6 +35,13 @@ const AppMenu = () => {
         },
         { label: t('religion'), to: '/religion' },
         { label: t('weather'), to: '/weather' },
+        {
+          label: 'economy',
+          items: [
+            { label: 'altın', to: '/economy/gold' },
+            { label: 'döviz', to: '/economy/exchange' },
+          ],
+        },
       ],
     },
   ];
