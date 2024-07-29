@@ -56,11 +56,16 @@ const Movie = () => {
         <div className="text-3xl col-12 md:col-5 font-bold">FİLMLER</div>
         <div className="">
           <div className="flex mb-2">
-            <input className="border-green-300 border-3 p-2 rounded-lg" placeholder="Film İsmi" value={inputFilm} onChange={handleFilmNameChange} />
+            <input
+              className="border-green-300 bg-green-50 border-3 p-2 rounded-lg outline-none focus:border-green-500 focus:bg-green-100"
+              placeholder="Film İsmi"
+              value={inputFilm}
+              onChange={handleFilmNameChange}
+            />
           </div>
           <div className="flex mb-2">
             <input
-              className="border-green-300 border-3 p-2 rounded-lg"
+              className="border-green-300 bg-green-50 border-3 p-2 rounded-lg outline-none focus:border-green-500 focus:bg-green-100"
               placeholder="Çıkış Tarihi"
               value={inputYear}
               onChange={handleReleaseDateChange}

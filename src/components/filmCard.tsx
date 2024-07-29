@@ -21,8 +21,8 @@ const FilmCards = (Props: Props) => {
       <div className="flex flex-column align-items-center mb-3 justify-between md:flex-row md:px-12">
         <div className="flex col-12 md:col-6 flex-column">
           <div className="flex-1 text-xl text-black p-3 font-semibold">Film İsmi: {Props.title}</div>
-          <div className="flex-1 text-xl text-black p-3 font-semibold">Vizyon Tarihi: {Props.year}</div>
-          <div className="flex-1 text-xl text-black p-3 font-semibold">Tür: {Props.type}</div>
+          <div className="flex-1 text-lg text-black p-3 font-semibold">Vizyon Tarihi: {Props.year}</div>
+          <div className="flex-1 text-lg text-black p-3 font-semibold">Tür: {Props.type}</div>
         </div>
         {Props.poster ? (
           <div className="col-10 md:col-4 flex justify-end">
