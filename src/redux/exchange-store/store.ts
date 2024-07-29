@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchGold } from './thunks';
+import { fetchExchange } from './thunks';
 
-interface GoldItem {
+interface ExchangeItem {
   name: string;
+  code: string;
   buying: number;
   buyingstr: string;
   selling: number;
@@ -11,39 +12,40 @@ interface GoldItem {
   date: string;
   datetime: string;
   rate: number;
+  calculated: number;
 }
 
-interface GoldResponse {
+interface ExchangeResponse {
   success: boolean;
-  result: GoldItem[];
+  result: ExchangeItem[];
 }
 
-interface GoldState {
-  result: GoldItem[];
+interface ExchangeState {
+  result: ExchangeItem[];
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
 }
 
-const initialState: GoldState = {
+const initialState: ExchangeState = {
   result: [],
   status: 'idle',
   error: null,
 };
 
-export const goldSlice = createSlice({
-  name: 'gold',
+export const exchangeSlice = createSlice({
+  name: 'exchange',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchGold.pending, (state) => {
+      .addCase(fetchExchange.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchGold.fulfilled, (state, action: PayloadAction<GoldResponse>) => {
+      .addCase(fetchExchange.fulfilled, (state, action: PayloadAction<ExchangeResponse>) => {
         state.status = 'succeeded';
         state.result = action.payload.result;
       })
-      .addCase(fetchGold.rejected, (state, action: PayloadAction<any>) => {
+      .addCase(fetchExchange.rejected, (state, action: PayloadAction<any>) => {
         state.status = 'failed';
         state.error = action.payload;
       });

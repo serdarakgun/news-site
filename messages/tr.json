@@ -1,13 +1,17 @@
 {
   "Home": {
-    "header": "güncel başlıklar"
+    "header": "Güncel Başlıklar"
   },
   "SideBar": {
     "headerLabel": "kısayollar",
     "news": "Haberler",
     "football": "Futbol",
+    "movie" :"Film",
     "religion": "Namaz Vakitleri",
-    "weather": "Hava Durumu"
+    "weather": "Hava Durumu",
+    "economy": "Ekonomi",
+    "gold": "Altın Fiyatları",
+    "exchange": "Döviz Kurları"
   },
   "Football": {
     "headerLabel": "Ligler",
@@ -52,10 +56,12 @@
     "dropdown2": "Almanya",
     "dropdown3": "Amerika"
   },
-  "Gold": {
-    "header": "ALTIN FİYATLARI",
+  "Economy": {
+    "headerGold": "ALTIN FİYATLARI",
+    "headerExchange": "DÖVİZ KURLARI",
     "label1":"Tür",
     "label2": "Alış",
-    "label3": "Satış"
+    "label3": "Satış",
+    "label4": "Oran"
   }
 }

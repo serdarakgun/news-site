@@ -75,7 +75,7 @@ const Weather = () => {
       ) : (
         <div>
           <div className="col-12 card flex justify-center items-center flex-column md:flex-row md:justify-between">
-            <div className="text-3xl mb-3 md:mb-0">
+            <div className="text-3xl mb-3 md:mb-0 font-bold">
               {t('headerLabel')}: {selectedCity.name.toUpperCase()}
             </div>
             <Dropdown
@@ -92,19 +92,19 @@ const Weather = () => {
           </div>
           <div className="col-12 card">
             <DataTable value={data} tableClassName="col-12">
-              <Column field="date" header={t('label1')} body={(rowData: WeatherData) => `${rowData.date}`} />
-              <Column field="day" header={t('label2')} body={(rowData: WeatherData) => `${t(rowData.day)}`} />
+              <Column field="date" header={t('label1')} body={(rowData: WeatherData) => `${rowData.date}`} className="font-bold" />
+              <Column field="day" header={t('label2')} body={(rowData: WeatherData) => `${t(rowData.day)}`} className="font-bold" />
               <Column
                 field="icon"
                 header={t('label3')}
                 body={(rowData: WeatherData) => <img src={rowData.icon} alt={rowData.description} style={{ maxWidth: '50px', maxHeight: '50px' }} />}
               />
-              <Column field="description" header={t('label4')} body={(rowData: WeatherData) => `${t(rowData.description)}`} />
-              <Column field="degree" header={t('label5')} body={(rowData: WeatherData) => `${rowData.degree}C°`} />
-              <Column field="min" header={t('label6')} body={(rowData: WeatherData) => `${rowData.min}C°`} />
-              <Column field="max" header={t('label7')} body={(rowData: WeatherData) => `${rowData.max}C°`} />
-              <Column field="night" header={t('label8')} body={(rowData: WeatherData) => `${rowData.night}C°`} />
-              <Column field="humidity" header={t('label9')} body={(rowData: WeatherData) => `${rowData.humidity}%`} />
+              <Column field="description" header={t('label4')} body={(rowData: WeatherData) => `${t(rowData.description)}`} className="font-bold" />
+              <Column field="degree" header={t('label5')} body={(rowData: WeatherData) => `${rowData.degree}C°`} className="font-bold" />
+              <Column field="min" header={t('label6')} body={(rowData: WeatherData) => `${rowData.min}C°`} className="font-bold" />
+              <Column field="max" header={t('label7')} body={(rowData: WeatherData) => `${rowData.max}C°`} className="font-bold" />
+              <Column field="night" header={t('label8')} body={(rowData: WeatherData) => `${rowData.night}C°`} className="font-bold" />
+              <Column field="humidity" header={t('label9')} body={(rowData: WeatherData) => `${rowData.humidity}%`} className="font-bold" />
             </DataTable>
           </div>
         </div>

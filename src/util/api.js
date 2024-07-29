@@ -3,7 +3,7 @@ import axios from 'axios';
 import { hostUrl } from './constants';
 import { clearStorage } from './util-functions.ts';
 
-const API_KEY = '6vDtt0ooPL9YwK7K9siJbj:7BXGTrjxuT0N4A7izdyjjm';
+const API_KEY = '5j7CsYlVppA4UIPYpCfzIU:2SNNk8iRyEl6NB7DBJuSf8';
 
 const axiosClient = axios.create({
   baseURL: hostUrl,

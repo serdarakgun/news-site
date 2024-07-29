@@ -168,7 +168,7 @@ const Religion = () => {
       ) : (
         <div>
           <div className="col-12 card flex justify-between">
-            <div className="text-3xl">NAMAZ VAKİTLERİ: {selectedCity.name.toUpperCase()}</div>
+            <div className="text-3xl font-bold">NAMAZ VAKİTLERİ: {selectedCity.name.toUpperCase()}</div>
             <Dropdown
               value={selectedCity}
               onChange={(e) => setSelectedCity(e.value)}
@@ -183,13 +183,13 @@ const Religion = () => {
           <div className="col-12 card ">
             <DataTable value={data} tableClassName="col-12">
               {columns.map((col, i) => (
-                <Column key={i} field={col.field} header={col.header} />
+                <Column key={i} field={col.field} header={col.header} className="font-bold" />
               ))}
             </DataTable>
           </div>
           {countdownShow && nextPrayer && (
             <div className="col-12 card">
-              <div className="text-xl">
+              <div className="text-xl font-medium">
                 {nextPrayer.name.toUpperCase()} VAKTİNE KALAN SÜRE:{' '}
                 {`${countdownShow.hours} SAAT ${countdownShow.minutes} DAKİKA ${countdownShow.seconds} SANİYE`}
               </div>

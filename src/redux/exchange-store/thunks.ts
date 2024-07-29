@@ -1,8 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import api from '@/util/api';
 
-interface GoldItem {
+interface ExchangeItem {
   name: string;
+  code: string;
   buying: number;
   buyingstr: string;
   selling: number;
@@ -11,16 +12,17 @@ interface GoldItem {
   date: string;
   datetime: string;
   rate: number;
+  calculated: number;
 }
 
-interface GoldResponse {
+interface ExchangeResponse {
   success: boolean;
-  result: GoldItem[];
+  result: ExchangeItem[];
 }
 
-export const fetchGold = createAsyncThunk<GoldResponse, void, { rejectValue: string }>('fetchGold', async (_, { rejectWithValue }) => {
+export const fetchExchange = createAsyncThunk<ExchangeResponse, void, { rejectValue: string }>('fetchGold', async (_, { rejectWithValue }) => {
   try {
-    const response = await api.get<GoldResponse>('https://api.collectapi.com/economy/goldPrice');
+    const response = await api.get<ExchangeResponse>('https://api.collectapi.com/economy/allCurrency');
     if (response.status === 200) {
       return response.data;
     } else {

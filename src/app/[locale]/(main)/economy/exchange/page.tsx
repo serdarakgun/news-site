@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { ProgressSpinner } from 'primereact/progressspinner';
-import { fetchGold, reduxStore } from '@/src/redux';
+import { fetchExchange, reduxStore } from '@/src/redux';
 import { setToastMessage } from '@/src/redux/toastMessage-store';
 import { useTranslations } from 'next-intl';
 
@@ -27,16 +27,16 @@ const Gold = () => {
   const t = useTranslations('Economy');
   useEffect(() => {
     if (flag) {
-      fetchGoldData();
+      fetchExchangeData();
       setFlag(false);
       console.log(data[0]);
     }
   }, []);
-  const fetchGoldData = async () => {
+  const fetchExchangeData = async () => {
     setLoading(true);
     try {
-      const resultAction = await reduxStore.dispatch(fetchGold());
-      if (fetchGold.fulfilled.match(resultAction)) {
+      const resultAction = await reduxStore.dispatch(fetchExchange());
+      if (fetchExchange.fulfilled.match(resultAction)) {
         const newsData = resultAction.payload;
         //console.log(newsData.result);
         setData(newsData.result);
@@ -68,7 +68,7 @@ const Gold = () => {
       ) : (
         <div>
           <div className="col-12 card flex flex-column align-center text-center md:flex-row md:justify-between md:items-center md:px-0">
-            <div className=" text-3xl col-12 md:col-5 font-bold">{t('headerGold')}</div>
+            <div className=" text-3xl col-12 md:col-5 font-bold">{t('headerExchange')}</div>
             <div className="flex flex-column justify-center items-center col-12 md:flex-column md:col-3">
               <div className="text-xl mb-2 font-medium">son güncelleme</div>
               <div>saat: {data ? data[0]?.time : ''}</div>
@@ -76,7 +76,7 @@ const Gold = () => {
             </div>
           </div>
           <div className="col-12 card mb-3">
-            <DataTable value={data} tableClassName="col-12">
+            <DataTable value={data} tableClassName="col-12 ">
               <Column field="name" header={t('label1')} body={(rowData: Items) => `${rowData.name}`} className="font-bold" />
               <Column field="buy" header={t('label2')} body={(rowData: Items) => `${rowData.buying} TL`} className="font-bold" />
               <Column field="sell" header={t('label3')} body={(rowData: Items) => `${rowData.selling} TL`} className="font-bold" />

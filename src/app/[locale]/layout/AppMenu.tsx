@@ -35,11 +35,12 @@ const AppMenu = () => {
         },
         { label: t('religion'), to: '/religion' },
         { label: t('weather'), to: '/weather' },
+        { label: t('movie'), to: '/movies' },
         {
-          label: 'economy',
+          label: t('economy'),
           items: [
-            { label: 'altın', to: '/economy/gold' },
-            { label: 'döviz', to: '/economy/exchange' },
+            { label: t('gold'), to: '/economy/gold' },
+            { label: t('exchange'), to: '/economy/exchange' },
           ],
         },
       ],

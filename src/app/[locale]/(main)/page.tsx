@@ -105,7 +105,7 @@ const HomePage = () => {
         />
       )}
       <div className="grid card px-4 py-1 opacity-90">
-        <div className="col-12 flex justify-content-center align-items-center text-center">{t('header')}</div>
+        <div className="col-12 flex justify-content-center align-items-center text-center text-4xl font-medium">{t('header')}</div>
       </div>
 
       <div ref={newsContainerRef} className="grid bg-transparent p-3" style={{ overflowY: 'auto' }}>

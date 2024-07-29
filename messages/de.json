@@ -1,13 +1,17 @@
 {
   "Home": {
-    "header": "aktuelle Schlagzeilen"
+    "header": "Aktuelle Schlagzeilen"
   },
   "SideBar": {
     "headerLabel": "Abkürzungen",
     "news": "Aktuelles",
     "football": "Fußball",
+    "movie": "Movie",
     "religion": "Gebetszeiten",
-    "weather": "Wettervorhersage"
+    "weather": "Wettervorhersage",
+    "economy": "Wirtschaft",
+    "gold": "Goldpreise",
+    "exchange": "Wechselkurse"
   },
   "Football": {
     "headerLabel": "Ligen",
@@ -52,10 +56,12 @@
     "dropdown2": "Deutschland",
     "dropdown3": "Amerika"
   },
-  "Gold": {
-    "header": "GOLDPREISE",
+  "Economy": {
+    "headerGold": "GOLDPREISE",
+    "headerExchange": "WECHSELKURSE",
     "label1": "Art",
     "label2": "Kaufen",
-    "label3": "Verkaufen"
+    "label3": "Verkaufen",
+    "label4": "Rate"
   }
 }
